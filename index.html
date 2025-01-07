@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('vaca.png');
+            background-size: cover;
+            z-index: -1;
+            opacity: 1; /* Ajustar la opacitat per fer la textura més visible */
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f8ff; /* Color de fondo alegre */
+        }
+
+        .card {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 4em;
+            text-align: center;
+            border: 1px solid #ccc;
+            padding: 40px; /* Padding generós */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            flex-direction: column;
+            max-width: 80%; /* Limitar l'amplada màxima */
+            background-color: #ffebcd; /* Color de fons de la targeta */
+            border-radius: 10px; /* Cantonades arrodonides */
+        }
+
+        .update-button {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            width: 100px;
+            height: 100px;
+            padding: 0;
+            font-size: 6em;
+            background-color: #ff69b4; /* Color de fons del botó */
+            color: white; /* Color del text del botó */
+            border: none;
+            border-radius: 50%; /* Forma circular */
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .update-button:hover {
+            background-color: #ff1493; /* Color de fons del botó en passar el ratolí */
+        }
+    </style>
+
+    <div class="card" id="questionCard"></div>
+    <button class="update-button" onclick="updateQuestion()">↻</button>
+
+    <script>
+        const questions = [
+            "Quin és millor equip de futbol del món? 🏆",
+            "Digues un plat típic de Catalunya",
+            "Quin és el teu color preferit?",
+            "Digues un país de parla anglesa",
+            "Digues un guarniment de Nadal",
+            "Quin és el millor personatge dels Simpsons?",
+            "Quin és l'animal que fa més por?",
+            "Una fruita de color vermell",
+            "El nom d'un youtuber famós",
+            "El nom d'un pintor famós"
+        ];
+
+        let currentQuestionIndex = 0;
+
+        function updateQuestion() {
+            if (questions.length === 0) {
+            document.getElementById('questionCard').innerText = "S'han esgotat les preguntes!";
+            return;
+            }
+            currentQuestionIndex = Math.floor(Math.random() * questions.length);
+            document.getElementById('questionCard').innerText = questions[currentQuestionIndex];
+            questions.splice(currentQuestionIndex, 1); // Remove the used question
+        }
+
+        document.getElementById('questionCard').innerText = questions[currentQuestionIndex];
+    </script>
+</body>
+</html>
