@@ -72,7 +72,7 @@
 
     <script>
         const questions = [
-            "Quin és millor equip de futbol del món? 🏆",
+            /* "Quin és millor equip de futbol del món? 🏆",
             "Digues un plat típic de Catalunya",
             "Quin és el teu color preferit?",
             "Digues un país de parla anglesa",
@@ -81,11 +81,31 @@
             "Quin és l'animal que fa més por?",
             "Una fruita de color vermell",
             "El nom d'un youtuber famós",
-            "El nom d'un pintor famós"
+            "El nom d'un pintor famós" */
+            "Quin esport és el més espectacular als jocs olímpics",
+            "Un esport aquàtic",
+            "Una comunitat autònoma espanyola",
+            "Un refresc",
+            "Una vocal",
+            "El millor pla en família",
+            "Un 'David' famós",
+            "Un cantant de reguetó famós",
+            "La millor disfressa de Halloween",
+            "Un desastre natural",
+            "Les millors postres",
+            "De quin color et pintaries el cabell",
+            "El millor ingredient d'una pizza",
+            "Qui vesteis millor de tota la classe",
+            "Un personatge de ficció de color verd",
+            "El millor color de retolador fluorescent",
+            "Què compraries si tinguessis molts diners?",
+            "Què menges per esmorçar amb la llet",
+            "Una marca d'smartphones",
+            "Una verdura que no t'agradi"
         ];
 
         let currentQuestionIndex = 0;
-
+        updateQuestion();
         function updateQuestion() {
             if (questions.length === 0) {
             document.getElementById('questionCard').innerText = "S'han esgotat les preguntes!";
